@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Brendo Lima — Estudante de Engenharia de Software, focado em Linguagem C, Desenvolvimento Web, Redes e Segurança da Informação.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#030712">
+
+  <title>Brendo Lima | Engenheiro de Software</title>
+
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Folha de Estilos Oficial (Azul Profundo & Ciano Elétrico) -->
+  <link rel="stylesheet" href="./Assets/css/style.css">
+</head>
+<body>
+
+  <!-- ====================================================================== -->
+  <!-- LOADER DE INICIALIZAÇÃO                                                -->
+  <!-- ====================================================================== -->
+  <div class="loader" id="loader" aria-label="Inicializando sistema">
+    <div class="loader-logo"><span>&lt;</span>Brendo<span>/&gt;</span></div>
+    <div class="loader-line"><span></span></div>
+    <div class="loader-status">SYSTEM INITIALIZING... [DEV.ENVIRONMENT: C99 / WEB]</div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- BACKGROUND TECNOLÓGICO: GRADE, NÉBULAS, SCANLINE E PARTÍCULAS          -->
+  <!-- ====================================================================== -->
+  <div class="background" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="tech-lines"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="scanline"></div>
+    <div class="particles" id="particles"></div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- 1. CABEÇALHO / NAVEGAÇÃO                                               -->
+  <!-- ====================================================================== -->
+  <header class="header" id="header">
+    <a href="#inicio" class="logo" aria-label="Ir para o início">
+      <span>&lt;</span>Brendo<span>/&gt;</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="#inicio" class="nav-link active">
+        <span class="lang-pt">Início</span><span class="lang-en">Home</span>
+      </a>
+      <a href="#sobre" class="nav-link">
+        <span class="lang-pt">Sobre</span><span class="lang-en">About</span>
+      </a>
+      <a href="#habilidades" class="nav-link">
+        <span class="lang-pt">Skills</span><span class="lang-en">Skills</span>
+      </a>
+      <a href="#trajetoria" class="nav-link">
+        <span class="lang-pt">Trajetória</span><span class="lang-en">Timeline</span>
+      </a>
+      <a href="#projetos" class="nav-link">
+        <span class="lang-pt">Projetos</span><span class="lang-en">Projects</span>
+      </a>
+      <a href="#contato" class="nav-link">
+        <span class="lang-pt">Contato</span><span class="lang-en">Contact</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Seletor de Idioma PT / EN -->
+      <div class="lang-selector" aria-label="Selecionar idioma">
+        <button type="button" class="lang-btn active" id="btn-pt" aria-label="Português">PT</button>
+        <button type="button" class="lang-btn" id="btn-en" aria-label="English">EN</button>
+      </div>
+
+      <!-- Alternador de Tema Claro/Escuro -->
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Alternar tema">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================================================================== -->
+    <!-- 2. HERO SECTION                                                      -->
+    <!-- ==================================================================== -->
+    <section class="hero section" id="inicio">
+      <div class="hero-content">
+        
+        <!-- Status de Disponibilidade -->
+        <div class="hero-badge reveal">
+          <span></span>
+          <span class="lang-pt">DISPONÍVEL PARA OPORTUNIDADES</span>
+          <span class="lang-en">AVAILABLE FOR OPPORTUNITIES</span>
+        </div>
+
+        <p class="hero-small reveal">
+          <span class="lang-pt">Olá, eu sou o</span>
+          <span class="lang-en">Hello, I'm</span>
+        </p>
+
+        <h1 class="hero-title reveal">
+          Brendo <span>Lima</span>
+        </h1>
+
+        <!-- Efeito de Digitação Dinâmica -->
+        <div class="typing-container reveal">
+          <span>
+            <span class="lang-pt">Eu sou </span>
+            <span class="lang-en">I am </span>
+          </span>
+          <span class="typing" id="typing"></span>
+          <span class="cursor">|</span>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- [EDITAR PERÍODO / APRESENTAÇÃO]                                  -->
+        <!-- Quando passar para o 2º período, atualize o texto abaixo:        -->
+        <!-- ================================================================ -->
+        <p class="hero-description reveal">
+          <span class="lang-pt">
+            Estudante de <strong>Engenharia de Software</strong> na Estácio (1º período), baseado no Rio de Janeiro (Rocinha). Focado em lógica e ponteiros em C, desenvolvimento web moderno e <strong>Agentes de IA (Imersão Alura + Google)</strong>.
+          </span>
+          <span class="lang-en">
+            <strong>Software Engineering</strong> student at Estácio (1st term), based in Rio de Janeiro (Rocinha). Focused on C programming logic, modern web development, and <strong>AI Agents (Alura + Google)</strong>.
+          </span>
+        </p>
+
+        <!-- Botões de Ação -->
+        <div class="hero-buttons reveal">
+          <a href="#projetos" class="btn btn-primary">
+            <span class="lang-pt">Ver meus projetos</span>
+            <span class="lang-en">View my projects</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contato" class="btn btn-outline">
+            <span class="lang-pt">Entre em contato</span>
+            <span class="lang-en">Get in touch</span>
+          </a>
+          <!-- Link configurável para download do CV -->
+          <a href="./Assets/cv-brendo-lima.pdf" download class="btn btn-outline" target="_blank" rel="noopener noreferrer" title="Baixar currículo atualizado">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <span class="lang-pt">Currículo</span>
+            <span class="lang-en">Resume</span>
+          </a>
+        </div>
+
+        <!-- Links das Redes Sociais -->
+        <div class="hero-social reveal">
+          <a href="https://github.com/BRENDOice" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/brendo-dev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:brendolimadefreitas@gmail.com" aria-label="E-mail">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Coluna Visual da Direita: Terminal C, Radares e Tags Flutuantes -->
+      <div class="hero-visual reveal">
+        <div class="visual-grid"></div>
+        <div class="visual-ring ring-1"></div>
+        <div class="visual-ring ring-2"></div>
+        <div class="target target-1"></div>
+        <div class="target target-2"></div>
+
+        <!-- Terminal Interativo em Linguagem C -->
+        <div class="code-card">
+          <div class="code-glitch"></div>
+          <div class="code-top">
+            <div class="code-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span>developer.c</span>
+            <small>ONLINE // C99</small>
+          </div>
+          <div class="code-content">
+            <p><span class="code-purple">#include</span> <span class="code-green">&lt;stdio.h&gt;</span></p>
+            <p><span class="code-purple">typedef struct</span> <span class="code-yellow">{</span></p>
+            <p class="indent"><span class="code-blue">char</span>* nome;</p>
+            <p class="indent"><span class="code-blue">char</span>* curso;</p>
+            <p class="indent"><span class="code-blue">char</span>* skills[3];</p>
+            <p><span class="code-yellow">}</span> <span class="code-cyan">Developer</span>;</p>
+            <p class="mt-2"><span class="code-purple">int</span> <span class="code-blue">main</span>(<span class="code-blue">void</span>) {</p>
+            <p class="indent"><span class="code-cyan">Developer</span> dev = {</p>
+            <p class="indent-2">.nome = <span class="code-green">"Brendo Lima"</span>,</p>
+            <!-- [EDITAR PERÍODO NO TERMINAL]: Troque "1º Período" para "2º" no futuro -->
+            <p class="indent-2">.curso = <span class="code-green">"Eng. de Software (1º)"</span>,</p>
+            <p class="indent-2">.skills = {<span class="code-green">"C"</span>, <span class="code-green">"JS"</span>, <span class="code-green">"Tailwind"</span>}</p>
+            <p class="indent">};</p>
+            <p class="indent"><span class="code-blue">printf</span>(<span class="code-green">"Linha por linha. Memória limpa.\n"</span>);</p>
+            <p class="indent"><span class="code-purple">return</span> <span class="code-yellow">0</span>;</p>
+            <p>}</p>
+            <p class="code-comment">// compilado com sucesso: 0 warnings, 0 leaks.</p>
+          </div>
+          <div class="code-footer">
+            <span><i class="fa-solid fa-circle"></i> SYSTEM ACTIVE</span>
+            <span>100% OK</span>
+          </div>
+        </div>
+
+        <!-- Tags Flutuantes com Ícones de Destaque -->
+        <div class="floating-card card-c">
+          <i class="fa-solid fa-terminal"></i>
+          <span>Google Gemini</span>
+        </div>
+        <div class="floating-card card-js">
+          <i class="fa-brands fa-js"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="floating-card card-tailwind">
+          <i class="fa-brands fa-css3-alt"></i>
+          <span>Tailwind CSS</span>
+        </div>
+
+        <div class="system-status">
+          <span></span> SYSTEM ONLINE // RJ - ROCINHA
+        </div>
+      </div>
+
+      <a href="#sobre" class="scroll-down" aria-label="Rolar para a seção sobre">
+        <span>SCROLL</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 3. SOBRE MIM                                                         -->
+    <!-- ==================================================================== -->
+    <section class="about section" id="sobre">
+      <div class="section-header reveal">
+        <span class="section-tag">
+          <i class="fa-solid fa-user"></i>
+          <span class="lang-pt">Sobre mim</span>
+          <span class="lang-en">About me</span>
+        </span>
+        <h2>
+          <span class="lang-pt">Transformando curiosidade em <span>tecnologia.</span></span>
+          <span class="lang-en">Turning curiosity into <span>technology.</span></span>
+        </h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <p class="about-highlight">
+            <span class="lang-pt">Sou estudante de Engenharia de Software e entusiasta de tecnologia, focado em dominar os fundamentos reais da computação.</span>
+            <span class="lang-en">I am a Software Engineering student and tech enthusiast focused on mastering core computer science principles.</span>
+          </p>
+
+          <!-- ============================================================== -->
+          <!-- [EDITAR PERÍODO NO TEXTO]: Atualize aqui quando avançar de fase  -->
+          <!-- ============================================================== -->
+          <p>
+            <span class="lang-pt">
+              Atualmente curso o <strong>1º período de Engenharia de Software na Universidade Estácio de Sá</strong>, onde desenvolvo conhecimentos fundamentais em lógica de programação e ponteiros com a <strong>Linguagem C</strong>, arquitetura de redes de computadores, estruturas de dados e segurança da informação.
+            </span>
+            <span class="lang-en">
+              Currently enrolled in my <strong>1st term of Software Engineering at Estácio de Sá University</strong>, building solid foundations in programming logic and pointers with the <strong>C language</strong>, network architectures, data structures, and cybersecurity.
+            </span>
+          </p>
+
+          <p>
+            <span class="lang-pt">
+              Concluí o Ensino Médio no <strong>Colégio pH com Bolsa de Mérito Integral de 100%</strong>, consolidando uma disciplina rigorosa de estudos e pensamento analítico. Morando na <strong>Rocinha, Rio de Janeiro</strong>, transformo o aprendizado teórico em aplicações práticas interativas — criando ferramentas com persistência em localStorage, diagnósticos de hardware e código limpo.
+            </span>
+            <span class="lang-en">
+              I graduated high school at <strong>Colégio pH with a 100% Full Merit Scholarship</strong>, cementing strict study discipline and analytical problem solving. Based in <strong>Rocinha, Rio de Janeiro</strong>, I turn academic theory into functional web apps — building tools with localStorage persistence, hardware diagnostics, and clean architecture.
+            </span>
+          </p>
+
+          <p>
+            <span class="lang-pt">
+              Paralelamente, participo ativamente da <strong>Imersão Inteligência Artificial da Alura em parceria com o Google</strong>, com foco no desenvolvimento de <strong>Agentes de IA autônomos</strong>, orquestração de LLMs, Engenharia de Prompts e integração com a <strong>API do Google Gemini</strong>.
+            </span>
+            <span class="lang-en">
+              Concurrently, I actively participate in the <strong>Alura + Google Artificial Intelligence Immersion</strong>, focusing on <strong>autonomous AI Agents</strong>, LLM orchestration, Prompt Engineering, and integrations with the <strong>Google Gemini API</strong>.
+            </span>
+          </p>
+
+          <!-- Cards de Resumo Rápido -->
+          <div class="about-info">
+            <div>
+              <span><span class="lang-pt">Nome</span><span class="lang-en">Name</span></span>
+              <strong>Brendo Lima</strong>
+            </div>
+            <div>
+              <span><span class="lang-pt">Localização</span><span class="lang-en">Location</span></span>
+              <strong>Rio de Janeiro, RJ (Rocinha)</strong>
+            </div>
+            <div>
+              <span><span class="lang-pt">Graduação</span><span class="lang-en">Degree</span></span>
+              <!-- [EDITAR PERÍODO]: Atualize o texto abaixo quando passar de período -->
+              <strong style="color: var(--primary);">Eng. de Software (1º Período)</strong>
+            </div>
+            <div>
+              <span><span class="lang-pt">Mérito Acadêmico</span><span class="lang-en">Academic Merit</span></span>
+              <strong>Bolsa pH 100% • Agentes IA</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 4. HABILIDADES (SKILLS)                                              -->
+    <!-- ==================================================================== -->
+    <section class="skills section" id="habilidades">
+      <div class="section-header center reveal">
+        <span class="section-tag">
+          <i class="fa-solid fa-code"></i>
+          <span class="lang-pt">Minhas habilidades</span>
+          <span class="lang-en">My Skills</span>
+        </span>
+        <h2>
+          <span class="lang-pt">Tecnologias que fazem parte da <span>minha jornada.</span></span>
+          <span class="lang-en">Technologies part of <span>my journey.</span></span>
+        </h2>
+        <p>
+          <span class="lang-pt">Ferramentas, linguagens e conceitos que estudo e aplico na criação de projetos.</span>
+          <span class="lang-en">Tools, languages, and concepts I study and apply to build practical solutions.</span>
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Skill 1: C -->
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-terminal"></i></div>
+          <h3>Lógica & Linguagem C</h3>
+          <p>
+            <span class="lang-pt">Ponteiros, alocação de memória (malloc/free), estruturas de dados e resolução algorítmica.</span>
+            <span class="lang-en">Pointers, memory allocation, data structures, and algorithmic problem solving.</span>
+          </p>
+          <div class="skill-level">
+            <span><span class="lang-pt">Domínio</span><span class="lang-en">Proficiency</span></span>
+            <strong>75%</strong>
+          </div>
+          <div class="progress"><span style="--progress:75%"></span></div>
+        </article>
+
+        <!-- Skill 2: HTML & Tailwind -->
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+          <h3>HTML5 & Tailwind CSS</h3>
+          <p>
+            <span class="lang-pt">Estruturação semântica de páginas modernas, acessibilidade, responsividade e utility-first design.</span>
+            <span class="lang-en">Semantic markup, web accessibility, responsive layouts, and utility-first styling.</span>
+          </p>
+          <div class="skill-level">
+            <span><span class="lang-pt">Domínio</span><span class="lang-en">Proficiency</span></span>
+            <strong>80%</strong>
+          </div>
+          <div class="progress"><span style="--progress:80%"></span></div>
+        </article>
+
+        <!-- Skill 3: JavaScript -->
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+          <h3>JavaScript (ES6+)</h3>
+          <p>
+            <span class="lang-pt">Manipulação do DOM, persistência em localStorage, consumo de APIs e sanitização de dados.</span>
+            <span class="lang-en">DOM manipulation, localStorage persistence, API consumption, and input sanitization.</span>
+          </p>
+          <div class="skill-level">
+            <span><span class="lang-pt">Domínio</span><span class="lang-en">Proficiency</span></span>
+            <strong>70%</strong>
+          </div>
+          <div class="progress"><span style="--progress:70%"></span></div>
+        </article>
+
+        <!-- Skill: Agentes de IA (Alura + Google) -->
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>Agentes de IA &amp; Google Gemini</h3>
+          <p>
+            <span class="lang-pt">Desenvolvimento de agentes autônomos, Engenharia de Prompts, Tool Calling e integração com a Gemini API (Imersão Alura + Google).</span>
+            <span class="lang-en">Autonomous AI agent workflows, Prompt Engineering, Tool Calling, and Gemini API integrations (Alura + Google Immersion).</span>
+          </p>
+          <div class="skill-level">
+            <span><span class="lang-pt">Domínio</span><span class="lang-en">Proficiency</span></span>
+            <strong>80%</strong>
+          </div>
+          <div class="progress"><span style="--progress:80%"></span></div>
+        </article>
+
+        <!-- Skill 4: Git & GitHub -->
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
+          <h3>Git & GitHub CLI</h3>
+          <p>
+            <span class="lang-pt">Versionamento via terminal, commits semânticos, branches e publicação no GitHub Pages.</span>
+            <span class="lang-en">Terminal version control, semantic commits, branching, and deployment via GitHub Pages.</span>
+          </p>
+          <div class="skill-level">
+            <span><span class="lang-pt">Domínio</span><span class="lang-en">Proficiency</span></span>
+            <strong>75%</strong>
+          </div>
+          <div class="progress"><span style="--progress:75%"></span></div>
+        </article>
+
+        <!-- Skill 5: Redes -->
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>Redes & Protocolos</h3>
+          <p>
+            <span class="lang-pt">Modelo OSI, pilha TCP/IP, endereçamento IPv4/IPv6, DNS, DHCP, HTTP/HTTPS e roteamento.</span>
+            <span class="lang-en">OSI Model, TCP/IP stack, IP addressing, DNS, DHCP, HTTP/HTTPS, and network routing.</span>
+          </p>
+          <div class="skill-level">
+            <span><span class="lang-pt">Domínio</span><span class="lang-en">Proficiency</span></span>
+            <strong>65%</strong>
+          </div>
+          <div class="progress"><span style="--progress:65%"></span></div>
+        </article>
+
+        <!-- Skill 6: Segurança -->
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Segurança & Criptografia</h3>
+          <p>
+            <span class="lang-pt">Funções de Hash (SHA), integridade de dados, conceitos de SecOps e mitigação de XSS.</span>
+            <span class="lang-en">Hash functions (SHA), data integrity, SecOps fundamentals, and XSS attack mitigation.</span>
+          </p>
+          <div class="skill-level">
+            <span><span class="lang-pt">Domínio</span><span class="lang-en">Proficiency</span></span>
+            <strong>65%</strong>
+          </div>
+          <div class="progress"><span style="--progress:65%"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 5. TRAJETÓRIA (LINHA DO TEMPO)                                       -->
+    <!-- ==================================================================== -->
+    <section class="timeline-section section" id="trajetoria">
+      <div class="section-header center reveal">
+        <span class="section-tag">
+          <i class="fa-solid fa-route"></i>
+          <span class="lang-pt">Minha trajetória</span>
+          <span class="lang-en">My timeline</span>
+        </span>
+        <h2>
+          <span class="lang-pt">Minha evolução na <span>tecnologia.</span></span>
+          <span class="lang-en">My evolution in <span>technology.</span></span>
+        </h2>
+      </div>
+
+      <div class="timeline">
+        <!-- Item 1: Graduação Estácio -->
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">
+              <span class="lang-pt">Atualmente (2026)</span>
+              <span class="lang-en">In Progress (2026)</span>
+            </span>
+            <!-- [EDITAR PERÍODO NA TRAJETÓRIA]: -->
+            <h3>Engenharia de Software (1º Período)</h3>
+            <h4>Universidade Estácio de Sá</h4>
+            <p>
+              <span class="lang-pt">Graduação com foco em ciência da computação, lógica e ponteiros em C, arquitetura de computadores, redes e segurança da informação.</span>
+              <span class="lang-en">Bachelor's degree focusing on computer science fundamentals, C pointers, computer architecture, networks, and cybersecurity.</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- Item: Imersão IA Alura + Google -->
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-robot"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">
+              <span class="lang-pt">Especialização Prática (2026)</span>
+              <span class="lang-en">Specialization (2026)</span>
+            </span>
+            <h3>Imersão Inteligência Artificial — Alura + Google</h3>
+            <h4>Google Gemini API • Agentes de IA Autônomos • Prompt Engineering</h4>
+            <p>
+              <span class="lang-pt">Construção de soluções com agentes inteligentes, raciocínio em múltiplos passos, tool use e aplicação dos modelos de fronteira do Google.</span>
+              <span class="lang-en">Building solutions with intelligent agents, multi-step reasoning, tool execution, and applying Google's frontier AI models.</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 2: Aplicações Web -->
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-laptop-code"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2025 — 2026</span>
+            <h3>Desenvolvimento de Aplicações Web Interativas</h3>
+            <h4>RigDoctor • FitHome • TaskMaster</h4>
+            <p>
+              <span class="lang-pt">Construção de projetos web com armazenamento local (localStorage), diagnósticos de hardware, validação de dados e publicação via GitHub Pages.</span>
+              <span class="lang-en">Building interactive web apps with localStorage persistence, hardware diagnostics, data validation, and GitHub Pages deployments.</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 3: Conclusão Colégio pH com Bolsa 100% -->
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-award"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">
+              <span class="lang-pt">Conquista Acadêmica</span>
+              <span class="lang-en">Academic Achievement</span>
+            </span>
+            <h3>Ensino Médio — Bolsa Mérito Integral 100%</h3>
+            <h4>Colégio pH</h4>
+            <p>
+              <span class="lang-pt">Formação concluída com bolsa de mérito integral de 100%, consolidando dedicação disciplinada aos estudos, resolução de problemas e capacidade analítica.</span>
+              <span class="lang-en">High school diploma completed with a full 100% merit scholarship, developing strong study discipline, analytical reasoning, and grit.</span>
+            </p>
+          </div>
+        </article>
+
+        <!-- Item 4: Próximos Passos -->
+        <article class="timeline-item reveal">
+          <div class="timeline-dot"><i class="fa-solid fa-rocket"></i></div>
+          <div class="timeline-content">
+            <span class="timeline-date">
+              <span class="lang-pt">Próximos Passos</span>
+              <span class="lang-en">Next Goals</span>
+            </span>
+            <h3>Oportunidades de Estágio &amp; Projetos</h3>
+            <h4>Aprender • Construir • Evoluir</h4>
+            <p>
+              <span class="lang-pt">Buscando oportunidades de estágio na área de software para aplicar conhecimentos práticos, colaborar com times técnicos e resolver desafios reais.</span>
+              <span class="lang-en">Seeking internship opportunities in software engineering to contribute to technical teams, apply practical knowledge, and tackle real-world problems.</span>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 6. PROJETOS (CARROSSEL INTERATIVO COMPLETO)                          -->
+    <!-- ==================================================================== -->
+    <section class="projects section" id="projetos">
+      <div class="section-header reveal">
+        <span class="section-tag">
+          <i class="fa-solid fa-folder-open"></i>
+          <span class="lang-pt">Meu trabalho</span>
+          <span class="lang-en">My work</span>
+        </span>
+        <h2>
+          <span class="lang-pt">Projetos que <span>estou construindo.</span></span>
+          <span class="lang-en">Projects I'm <span>building.</span></span>
+        </h2>
+      </div>
+
+      <div class="projects-carousel">
+        <button class="carousel-btn" id="projectPrev" type="button" aria-label="Projeto anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="projects-track" id="projectsTrack">
+
+          <!-- ============================================================ -->
+          <!-- PROJETO 1: RigDoctor                                         -->
+          <!-- ============================================================ -->
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-code">&lt;RigDoc/&gt;</div>
+              <span>WEB APP // HARDWARE</span>
+            </div>
+            <div class="project-content">
+              <div class="project-top">
+                <h3>RigDoctor</h3>
+                <div class="project-actions">
+                  <a href="https://github.com/BRENDOice/rig-doctor" target="_blank" rel="noopener noreferrer" aria-label="Código no GitHub" title="Ver código no GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://brendoice.github.io/rig-doctor/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto RigDoctor" title="Abrir aplicação online">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+              <p>
+                <span class="lang-pt">Ferramenta interativa de diagnóstico de hardware, guia de estabilidade de drivers de GPU (DDU) e estimador de taxa de quadros (FPS) para jogos e eSports.</span>
+                <span class="lang-en">Interactive hardware diagnostic tool, GPU driver stability monitor (DDU), and eSports game FPS estimator.</span>
+              </p>
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>Tailwind CSS</span>
+                <span>Hardware</span>
+                <span>Performance</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ============================================================ -->
+          <!-- PROJETO 2: FitHome                                           -->
+          <!-- ============================================================ -->
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-code">&lt;FitHome/&gt;</div>
+              <span>WEB APP // SAÚDE</span>
+            </div>
+            <div class="project-content">
+              <div class="project-top">
+                <h3>FitHome</h3>
+                <div class="project-actions">
+                  <a href="https://github.com/BRENDOice/fithome" target="_blank" rel="noopener noreferrer" aria-label="Código no GitHub" title="Ver código no GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://brendoice.github.io/fithome/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto FitHome" title="Abrir aplicação online">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+              <p>
+                <span class="lang-pt">Aplicação web responsiva para treinos em casa, calculadora de taxa metabólica basal e distribuição personalizada de macronutrientes com persistência de dados.</span>
+                <span class="lang-en">Responsive home workout web app with basal metabolic rate calculators and personalized macronutrient tracking with localStorage.</span>
+              </p>
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>LocalStorage</span>
+                <span>Tailwind CSS</span>
+                <span>Nutrição</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ============================================================ -->
+          <!-- PROJETO 3: TaskMaster                                        -->
+          <!-- ============================================================ -->
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-code">&lt;TaskMaster/&gt;</div>
+              <span>WEB APP // SEGURANÇA</span>
+            </div>
+            <div class="project-content">
+              <div class="project-top">
+                <h3>TaskMaster</h3>
+                <div class="project-actions">
+                  <a href="https://github.com/BRENDOice/taskmaster" target="_blank" rel="noopener noreferrer" aria-label="Código no GitHub" title="Ver código no GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://brendoice.github.io/taskmaster/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto TaskMaster" title="Abrir aplicação online">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+              </div>
+              <p>
+                <span class="lang-pt">Gerenciador de tarefas com filtros de prioridade, persistência total em localStorage e foco especial em sanitização contra vulnerabilidades XSS.</span>
+                <span class="lang-en">Task management web app with priority filters, complete localStorage persistence, and strong focus on input sanitization against XSS.</span>
+              </p>
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>Segurança XSS</span>
+                <span>LocalStorage</span>
+                <span>DOM</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ============================================================ -->
+          <!-- PROJETO 4 (NOVO): Algoritmos & Estruturas em C               -->
+          <!-- ============================================================ -->
+          <article class="project-card">
+            <div class="project-image">
+              <div class="project-code">&lt;AI_Agent/&gt;</div>
+              <span>IA // ALURA + GOOGLE</span>
+            </div>
+            <div class="project-content">
+              <div class="project-top">
+                <h3>Agente de IA — Google Gemini</h3>
+                <div class="project-actions">
+                  <a href="https://github.com/BRENDOice" target="_blank" rel="noopener noreferrer" aria-label="Código no GitHub" title="Ver código no GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <p>
+                <span class="lang-pt">Agente inteligente autônomo desenvolvido na Imersão IA da Alura com o Google, explorando chamadas de ferramentas (tool use), raciocínio multimodal e prompts estruturados.</span>
+                <span class="lang-en">Autonomous intelligent agent built during the Alura + Google AI Immersion, exploring tool calling, multimodal reasoning, and structured prompting.</span>
+              </p>
+              <div class="project-tags">
+                <span>Google Gemini</span>
+                <span>Agentes de IA</span>
+                <span>Prompt Engineering</span>
+                <span>Python / JS</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <button class="carousel-btn" id="projectNext" type="button" aria-label="Próximo projeto">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="carousel-dots" id="projectDots">
+        <button class="active" data-slide="0" aria-label="Projeto 1"></button>
+        <button data-slide="1" aria-label="Projeto 2"></button>
+        <button data-slide="2" aria-label="Projeto 3"></button>
+        <button data-slide="3" aria-label="Projeto 4"></button>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- 7. CONTATO SEGURO COM HONEYPOT ANTI-SPAM                             -->
+    <!-- ==================================================================== -->
+    <section class="contact section" id="contato">
+      <div class="contact-box reveal">
+        <div class="contact-content">
+          <span class="section-tag">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span class="lang-pt">Vamos conversar</span>
+            <span class="lang-en">Let's connect</span>
+          </span>
+          <h2>
+            <span class="lang-pt">Tem uma ideia? <span>Vamos criar.</span></span>
+            <span class="lang-en">Have an idea? <span>Let's build it.</span></span>
+          </h2>
+          <p>
+            <span class="lang-pt">Estou aberto a oportunidades de estágio em tecnologia, projetos acadêmicos e colaborações em software. Entre em contato comigo diretamente!</span>
+            <span class="lang-en">Open to software engineering internships, academic projects, and technical collaborations. Feel free to reach out directly!</span>
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:brendolimadefreitas@gmail.com">
+              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <small>Email</small>
+                <strong>brendolimadefreitas@gmail.com</strong>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/brendo-dev/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <div>
+                <small>LinkedIn</small>
+                <strong>in/brendo-dev</strong>
+              </div>
+            </a>
+            <a href="https://github.com/BRENDOice" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i>
+              <div>
+                <small>GitHub</small>
+                <strong>@BRENDOice</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulário Web3Forms com Proteção Honeypot -->
+        <form class="contact-form" id="contactForm">
+          <!-- Chave Web3Forms (Substitua caso crie sua própria chave no web3forms.com) -->
+          <input type="hidden" name="access_key" value="fc61dfd0-e365-4b42-b2c9-420eac135403">
+
+          <!-- Honeypot Anti-Spam invisível: se um bot preencher, o envio é descartado -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+          <div class="input-group">
+            <label for="name">
+              <span class="lang-pt">Seu nome</span>
+              <span class="lang-en">Your name</span>
+            </label>
+            <input type="text" id="name" name="name" placeholder="Digite seu nome..." autocomplete="name" required>
+          </div>
+
+          <div class="input-group">
+            <label for="email">
+              <span class="lang-pt">Seu email</span>
+              <span class="lang-en">Your email</span>
+            </label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email..." autocomplete="email" required>
+          </div>
+
+          <div class="input-group">
+            <label for="message">
+              <span class="lang-pt">Mensagem</span>
+              <span class="lang-en">Message</span>
+            </label>
+            <textarea id="message" name="message" rows="5" placeholder="Digite sua mensagem..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary send-btn">
+            <span class="lang-pt">Enviar mensagem</span>
+            <span class="lang-en">Send message</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================== -->
+  <!-- RODAPÉ (FOOTER)                                                        -->
+  <!-- ====================================================================== -->
+  <footer class="footer">
+    <div class="footer-logo">&lt;<span>Brendo</span>/&gt;</div>
+    <p>
+      <span class="lang-pt">Desenvolvido por Brendo Lima • Engenharia de Software</span>
+      <span class="lang-en">Developed by Brendo Lima • Software Engineering</span>
+    </p>
+    <div class="footer-line"></div>
+    <span>© 2026 Brendo Lima de Freitas — <span class="lang-pt">Todos os direitos reservados.</span><span class="lang-en">All rights reserved.</span></span>
+  </footer>
+
+  <!-- Botão Voltar ao Topo -->
+  <button class="back-top" id="backTop" type="button" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Script Oficial -->
+  <script src="./Assets/js/script.js" defer></script>
+</body>
+</html>
