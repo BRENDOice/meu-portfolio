@@ -1666,9 +1666,10 @@ body.light .input-group textarea {
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
+.reveal.show,
+.hero .reveal {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* ==========================================================================
@@ -1891,4 +1892,328 @@ body {
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   UPGRADES: ULTRON WIDGET, MODAIS DE ARQUITETURA & TERMINAL CLI
+   ========================================================================== */
+
+/* Botão Flutuante do Ultron (Canto Inferior Esquerdo para não conflitar com BackTop) */
+.btn-ultron-float {
+  position: fixed;
+  bottom: 22px;
+  left: 22px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 50px;
+  background: rgba(4, 10, 24, 0.95);
+  border: 1px solid var(--primary);
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--primary-glow);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-ultron-float:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: var(--primary);
+  color: #02040a;
+  box-shadow: 0 12px 35px rgba(0, 240, 255, 0.45);
+}
+
+.ultron-badge-pulse {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+  animation: pulse 1.5s infinite;
+}
+
+/* Modal do Ultron Chat */
+.modal-ultron-box {
+  position: fixed;
+  bottom: 80px;
+  left: 22px;
+  width: min(390px, calc(100vw - 44px));
+  max-height: 520px;
+  height: 520px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: rgba(4, 9, 22, 0.98);
+  border: 1px solid var(--border-hover);
+  border-radius: 16px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-ultron-box.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(15px) scale(0.96);
+}
+
+.ultron-header {
+  padding: 14px 18px;
+  background: rgba(7, 15, 36, 0.95);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ultron-header h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ultron-header h3 span {
+  color: var(--primary);
+}
+
+.ultron-close-btn {
+  background: transparent;
+  color: var(--text-dark);
+  font-size: 16px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.ultron-close-btn:hover {
+  color: var(--primary);
+  background: rgba(0, 240, 255, 0.1);
+}
+
+/* Chips de Perguntas Rápidas */
+.ultron-chips {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(2, 6, 18, 0.7);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.ultron-chips::-webkit-scrollbar { display: none; }
+
+.chip-btn {
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  color: var(--primary-light);
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.chip-btn:hover {
+  background: var(--primary);
+  color: #02040a;
+}
+
+/* Área de Mensagens */
+.ultron-chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ultron-chat-body::-webkit-scrollbar {
+  width: 5px;
+}
+.ultron-chat-body::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.2);
+  border-radius: 10px;
+}
+
+.ultron-input-bar {
+  padding: 12px 14px;
+  background: rgba(6, 13, 31, 0.95);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  gap: 8px;
+}
+
+.ultron-input-bar input {
+  flex: 1;
+  background: rgba(2, 6, 18, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ultron-input-bar input:focus {
+  border-color: var(--primary);
+}
+
+.ultron-send-btn {
+  padding: 0 16px;
+  background: var(--primary);
+  color: #02040a;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.ultron-send-btn:hover {
+  background: var(--primary-light);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Botão de Arquitetura nos Cards de Projetos */
+.btn-arch {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.08);
+  color: #60a5fa;
+  transition: all 0.25s ease;
+}
+
+.btn-arch:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Modal de Arquitetura de Software */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(1, 3, 8, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arch-modal-content {
+  width: min(680px, 100%);
+  max-height: 85vh;
+  background: rgba(5, 10, 24, 0.98);
+  border: 1px solid var(--border-hover);
+  border-radius: 16px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 240, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+}
+
+.modal-backdrop.active .arch-modal-content {
+  transform: scale(1);
+}
+
+.arch-modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arch-modal-header h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.arch-modal-header h2 span {
+  color: var(--primary);
+}
+
+.arch-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  line-height: 1.8;
+  color: var(--text-soft);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.arch-block {
+  padding: 16px;
+  background: rgba(8, 16, 38, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+}
+
+.arch-block h4 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  color: var(--primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arch-block p {
+  color: var(--text-soft);
+  font-size: 13px;
+}
+
+.arch-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.arch-tags span {
+  padding: 3px 9px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--primary-light);
+  font-family: monospace;
 }

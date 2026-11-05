@@ -3,7 +3,7 @@
    ========================================================================== */
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
+const initPortfolio = () => {
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -28,15 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const typingElement = $("#typing");
   const phrasesPt = [
     "estudante de engenharia de software.",
-    "desenvolvedor web.",
+    "desenvolvedor de agentes de IA.",
     "programador em C.",
-    "focado em segurança da informação."
+    "imersão inteligência artificial (alura + google)."
   ];
   const phrasesEn = [
     "software engineering student.",
-    "web developer.",
+    "AI agents developer.",
     "C programmer.",
-    "focused on information security."
+    "AI immersion (alura + google)."
   ];
 
   let currentLang = "pt";
@@ -504,7 +504,153 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => updateCarousel(false), { passive: true });
 
   /* ==========================================================================
-     14. EASTER EGG NO CONSOLE DO DESENVOLVEDOR (F12)
+     14. CONTROLADOR DOS MODAIS DE ARQUITETURA DE SOFTWARE
+     ========================================================================== */
+  const archModalBackdrop = $("#archModalBackdrop");
+  const archModalTitle = $("#archModalTitle");
+  const archModalBody = $("#archModalBody");
+  const closeArchModal = $("#closeArchModal");
+
+  const dadosArquitetura = {
+    rigdoctor: {
+      titulo: 'RigDoctor <span>// Diagnóstico de Hardware</span>',
+      blocos: [
+        {
+          icone: 'fa-solid fa-bullseye',
+          titulo: 'Desafio & Problema Resolvido',
+          desc: 'Usuários com instabilidade de drivers, tela azul ou quedas bruscas de FPS frequentemente não sabem se a causa é gargalo de hardware (CPU/GPU Bottleneck) ou conflitos residuais de drivers de vídeo.'
+        },
+        {
+          icone: 'fa-solid fa-diagram-project',
+          titulo: 'Arquitetura de Dados & Engenharia',
+          desc: 'Motor de cálculo determinístico executado 100% no client-side em JavaScript puro. Mapeia dados de TDP, barramento PCIe e poder de computação de placas de vídeo e processadores para fornecer estimativas realistas de taxa de quadros e guia guiado do protocolo DDU (Display Driver Uninstaller).'
+        },
+        {
+          icone: 'fa-solid fa-shield-halved',
+          titulo: 'Segurança & Decisões de Design',
+          desc: 'Zero coleta de dados externos; total privacidade para o usuário e execução ultrarrápida sem requisições desnecessárias a servidores.'
+        }
+      ],
+      tags: ['JavaScript ES6+', 'Tailwind CSS', 'Hardware Telemetry', 'Client-Side Engine']
+    },
+    fithome: {
+      titulo: 'FitHome <span>// Gestão de Treino & Nutrição</span>',
+      blocos: [
+        {
+          icone: 'fa-solid fa-bullseye',
+          titulo: 'Desafio & Problema Resolvido',
+          desc: 'Planejamento de rotinas de treino calistênico e cálculo de gasto calórico sem a necessidade de aplicativos pagos ou sobrecarregados de anúncios.'
+        },
+        {
+          icone: 'fa-solid fa-diagram-project',
+          titulo: 'Arquitetura de Dados & Engenharia',
+          desc: 'Algoritmo baseado nas fórmulas científicas de Harris-Benedict e Mifflin-St Jeor para estimativa de TMB (Taxa Metabólica Basal) e distribuição personalizada de macronutrientes (proteínas, carboidratos e lipídios). Estado salvo automaticamente no localStorage.'
+        },
+        {
+          icone: 'fa-solid fa-shield-halved',
+          titulo: 'Segurança & Decisões de Design',
+          desc: 'Validação rígida de tipos numéricos e limites fisiológicos para impedir dados inválidos (NaN / valores negativos). Persistência de dados limpa e sem dependências externas.'
+        }
+      ],
+      tags: ['JavaScript', 'LocalStorage API', 'Design Responsivo', 'Algoritmos de Nutrição']
+    },
+    taskmaster: {
+      titulo: 'TaskMaster <span>// Segurança & Blindagem XSS</span>',
+      blocos: [
+        {
+          icone: 'fa-solid fa-bullseye',
+          titulo: 'Desafio & Problema Resolvido',
+          desc: 'Aplicações de lista de tarefas simples são o alvo mais comum de vulnerabilidades de Stored XSS e DOM-based XSS causadas por renderização insegura de strings de entrada do usuário.'
+        },
+        {
+          icone: 'fa-solid fa-diagram-project',
+          titulo: 'Arquitetura de Dados & Engenharia',
+          desc: 'Arquitetura com separação clara de estado e visualização (mini MVC). Os dados são serializados em JSON e passam por sanitização estrita de entidades HTML (&, <, >, ", \') antes de qualquer manipulação no DOM, além do uso de textContent.'
+        },
+        {
+          icone: 'fa-solid fa-shield-halved',
+          titulo: 'Segurança & Decisões de Design',
+          desc: 'Mitigação proativa de injeção de scripts maliciosos, permitindo que a aplicação armazene com segurança títulos e notas no localStorage.'
+        }
+      ],
+      tags: ['JavaScript ES6+', 'Segurança XSS', 'DOM Sanitization', 'LocalStorage API']
+    },
+    aiagent: {
+      titulo: 'Agente de IA <span>// Google Gemini API</span>',
+      blocos: [
+        {
+          icone: 'fa-solid fa-bullseye',
+          titulo: 'Desafio & Problema Resolvido',
+          desc: 'Automação de tarefas técnicas e raciocínio em múltiplos passos sem alucinações de modelos de linguagem tradicionais.'
+        },
+        {
+          icone: 'fa-solid fa-diagram-project',
+          titulo: 'Arquitetura de Dados & Engenharia',
+          desc: 'Construído durante a Imersão IA da Alura em parceria com o Google. Utiliza a Google Gemini API com suporte a Tool Use (Function Calling), engenharia de contexto e pipelines automatizados de resolução de problemas.'
+        },
+        {
+          icone: 'fa-solid fa-shield-halved',
+          titulo: 'Segurança & Decisões de Design',
+          desc: 'Proteção de credenciais via variáveis de ambiente, sanitização de saídas de LLM e validação de esquemas de dados (JSON Schema) para respostas previsíveis.'
+        }
+      ],
+      tags: ['Google Gemini API', 'Agentes de IA', 'Function Calling', 'Prompt Engineering', 'Python / JS']
+    }
+  };
+
+  const abrirModalArquitetura = (projetoKey) => {
+    const dados = dadosArquitetura[projetoKey];
+    if (!dados || !archModalBody || !archModalTitle) return;
+
+    archModalTitle.innerHTML = dados.titulo;
+    archModalBody.innerHTML = '';
+
+    dados.blocos.forEach((bloco) => {
+      const div = document.createElement('div');
+      div.className = 'arch-block';
+      div.innerHTML = `
+        <h4><i class="${bloco.icone}"></i> ${bloco.titulo}</h4>
+        <p>${bloco.desc}</p>
+      `;
+      archModalBody.appendChild(div);
+    });
+
+    const tagsDiv = document.createElement('div');
+    tagsDiv.className = 'arch-tags';
+    dados.tags.forEach((tag) => {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      tagsDiv.appendChild(span);
+    });
+    archModalBody.appendChild(tagsDiv);
+
+    archModalBackdrop?.classList.add('active');
+  };
+
+  $$('.btn-arch').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-arch');
+      if (key) abrirModalArquitetura(key);
+    });
+  });
+
+  const fecharModalArquitetura = () => {
+    archModalBackdrop?.classList.remove('active');
+  };
+
+  closeArchModal?.addEventListener('click', fecharModalArquitetura);
+  archModalBackdrop?.addEventListener('click', (e) => {
+    if (e.target === archModalBackdrop) fecharModalArquitetura();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && archModalBackdrop?.classList.contains('active')) {
+      fecharModalArquitetura();
+    }
+  });
+
+  /* ==========================================================================
+     15. EASTER EGG NO CONSOLE DO DESENVOLVEDOR (F12)
      ========================================================================== */
   console.log(
     "%c <Brendo Lima /> %c Engenharia de Software ",
@@ -522,13 +668,24 @@ document.addEventListener("DOMContentLoaded", () => {
     "color: #f8fafc;"
   );
   console.log(
-    "%c[+] Stack:  %cLinguagem C (C99), Web Frontend, Redes & Segurança",
+    "%c[+] Stack:  %cLinguagem C (C99), Agentes de IA (Google Gemini), Web & Segurança",
     "color: #00f0ff; font-weight: bold;",
     "color: #f8fafc;"
+  );
+  console.log(
+    "%c[+] LinkedIn:%c https://www.linkedin.com/in/brendo-dev/",
+    "color: #00f0ff; font-weight: bold;",
+    "color: #38bdf8;"
   );
   console.log(
     "%c[+] Contato:%c brendolimadefreitas@gmail.com",
     "color: #00f0ff; font-weight: bold;",
     "color: #38bdf8;"
   );
-});
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPortfolio);
+} else {
+  initPortfolio();
+}
